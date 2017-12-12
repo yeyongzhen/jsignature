@@ -49,6 +49,8 @@
         aLink.download = fileName;
         aLink.href = URL.createObjectURL(blob);
         aLink.dispatchEvent(evt);
+
+        console.log(JSON.stringify(aLink));
     }
     /**
      * 将以base64的图片url数据转换为Blob
