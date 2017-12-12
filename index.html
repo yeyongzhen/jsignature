@@ -52,7 +52,12 @@
         evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
 
         aLink.download = fileName;
+
+        console.log(JSON.stringify(URL.createObjectURL(blob)));
         aLink.href = URL.createObjectURL(blob);
+
+
+
         aLink.dispatchEvent(evt);
 
 
