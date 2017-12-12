@@ -1,7 +1,6 @@
 <?php
 header('Content-type:text/html;charset=utf-8');
-$base64_image_content = $_POST;
-var_dump($base64_image_content);
+$base64_image_content = $_POST['imgBase64'];
 //匹配出图片的格式
 if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image_content, $result)){
 $type = $result[2];
@@ -62,10 +61,8 @@ echo '新文件保存失败';
 
             console.log(bytes);
 
-            $.ajax({
-                url:'index.php',
-                type:'post',
-                data:bytes
+            $.post('index.php', {imgBase64: bytes}, function(data) {
+                alert('ok');
             });
 //            downloadFile("a.png", convertBase64UrlToBlob(base64img));
         });
