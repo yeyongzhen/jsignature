@@ -1,6 +1,7 @@
 <?php
 header('Content-type:text/html;charset=utf-8');
-$base64_image_content = $_POST['imgBase64'];
+$base64_image_content = $_POST;
+var_dump($base64_image_content);exit;
 //匹配出图片的格式
 if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image_content, $result)){
 $type = $result[2];
